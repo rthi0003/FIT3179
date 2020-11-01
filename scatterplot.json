@@ -164,7 +164,7 @@
     "tooltip": [
       {"field": "CountryName", "type": "nominal","title":"Country Name"},
       {"field": "Positive Cases", "type": "quantitative", "format": ","},
-      {"field": "DeathCount", "type": "quantitative", "format": ","},
+      {"field": "DeathCount", "type": "quantitative", "format": ",","title":"Death Count"},
       {"field": "Population", "type": "quantitative"}
     ]
   },
