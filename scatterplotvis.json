@@ -1,0 +1,160 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "width": 500,
+  "height": 400,
+  "title": "COVID-19 Cases per Country (31 Oct 2020)",
+  "data": {
+    "url": "https://raw.githubusercontent.com/rthi0003/FIT3179/main/AsiaCovid19WithPop.csv"
+  },
+  "params": [
+    {
+      "name": "Country_Selection",
+      "bind": {
+        "input": "select",
+        "options": [
+          null,
+          "Tajikistan",
+          "Kuwait",
+          "Oman",
+          "Mongolia",
+          "Laos",
+          "Syria",
+          "Myanmar",
+          "Bhutan",
+          "Afghanistan",
+          "Taiwan",
+          "Japan",
+          "Sri Lanka",
+          "Iraq",
+          "Jordan",
+          "Turkey",
+          "Maldives",
+          "India",
+          "Indonesia",
+          "Bangladesh",
+          "Palestine",
+          "United Arab Emirates",
+          "Iran",
+          "Qatar",
+          "Brunei Darussalam",
+          "Lebanon",
+          "Malaysia",
+          "Israel",
+          "Uzbekistan",
+          "Philippines",
+          "Thailand",
+          "Yemen",
+          "Saudi Arabia",
+          "Cambodia",
+          "Timor Leste",
+          "South Korea",
+          "Nepal",
+          "Pakistan",
+          "Vietnam",
+          "China",
+          "Bahrain",
+          "Kyrgyzstan",
+          "Singapore",
+          "Kazakhstan"
+        ],
+        "labels": [
+          "Show All",
+          "Tajikistan",
+          "Kuwait",
+          "Oman",
+          "Mongolia",
+          "Laos",
+          "Syria",
+          "Myanmar",
+          "Bhutan",
+          "Afghanistan",
+          "Taiwan",
+          "Japan",
+          "Sri Lanka",
+          "Iraq",
+          "Jordan",
+          "Turkey",
+          "Maldives",
+          "India",
+          "Indonesia",
+          "Bangladesh",
+          "Palestine",
+          "United Arab Emirates",
+          "Iran",
+          "Qatar",
+          "Brunei Darussalam",
+          "Lebanon",
+          "Malaysia",
+          "Israel",
+          "Uzbekistan",
+          "Philippines",
+          "Thailand",
+          "Yemen",
+          "Saudi Arabia",
+          "Cambodia",
+          "Timor Leste",
+          "South Korea",
+          "Nepal",
+          "Pakistan",
+          "Vietnam",
+          "China",
+          "Bahrain",
+          "Kyrgyzstan",
+          "Singapore",
+          "Kazakhstan"
+        ],
+        "name": "Country Selection: "
+      }
+    }
+  ],
+  "transform": [
+    {
+      "filter": "Country_Selection == null || datum.CountryName == Country_Selection"
+    }
+  ],
+  "selection": {
+    "continent_highlight": {
+      "type": "multi",
+      "fields": ["CountryName"],
+      "bind": "legend"
+    }
+  },
+  "mark": "circle",
+  "encoding": {
+    "x": {
+      "field": "Positive Cases",
+      "type": "quantitative",
+      "title": "Confirmed Cases",
+      "axis": {"tickCount": 7},
+      "scale": {"type": "log", "domain": [1, 10000000]}
+    },
+    "y": {
+      "field": "DeathCount",
+      "type": "quantitative",
+      "axis": {"tickCount": 6},
+      "scale": {"type": "log", "domain": [1, 1000000]}
+    },
+    "color": {"field": "CountryName", "type": "nominal"},
+    "opacity": {
+      "condition": {"selection": "continent_highlight", "value": 0.9},
+      "value": 0.1
+    },
+    "size": {
+      "field": "Population",
+      "type": "quantitative",
+      "scale": {
+        "type": "threshold",
+        "domain": [1000000, 10000000, 50000000, 100000000, 500000000],
+        "range": [10, 50, 150, 200, 300, 400]
+      },
+      "legend": {"format": ".1s"}
+    },
+    "tooltip": [
+      {"field": "CountryName", "type": "nominal"},
+      {"field": "Positive Cases", "type": "quantitative", "format": ","},
+      {"field": "DeathCount", "type": "quantitative", "format": ","},
+      {"field": "Population", "type": "quantitative"}
+    ]
+  },
+  "config": {}
+}
