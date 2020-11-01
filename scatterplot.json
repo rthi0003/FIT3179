@@ -136,7 +136,7 @@
     "x": {
       "field": "Positive Cases",
       "type": "quantitative",
-      "title": "Confirmed Cases",
+      "title": "Positive Cases",
       "axis": {"tickCount": 7},
       "scale": {"type": "log", "domain": [1, 10000000]}
     },
@@ -162,7 +162,7 @@
       "legend": {"format": ".1s"}
     },
     "tooltip": [
-      {"field": "CountryName", "type": "nominal"},
+      {"field": "CountryName", "type": "nominal","title":"Country Name"},
       {"field": "Positive Cases", "type": "quantitative", "format": ","},
       {"field": "DeathCount", "type": "quantitative", "format": ","},
       {"field": "Population", "type": "quantitative"}
