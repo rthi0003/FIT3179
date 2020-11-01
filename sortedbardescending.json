@@ -1,0 +1,28 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "width": 500,
+  "height": 400,
+  "title": "COVID-19 Fatality Rate Of Asian Countries (As Of 31st October 2020)",
+  "data": {
+    "url": "https://raw.githubusercontent.com/rthi0003/FIT3179/main/AsiaCovid19WithPopAndRecovered.csv"
+  },
+  "transform": [
+    {
+      "calculate": "datum.DeathCount/datum.PositiveCases * 100 ",
+      "as": "Fatality Rate (%)"
+    }
+  ],
+  "mark": "bar",
+  "encoding": {
+    "y": {"field": "CountryName", "type": "nominal", "sort": "-x"},
+    "x": {"field": "Fatality Rate (%)", "type": "quantitative"},
+    "tooltip": [
+      {"field": "CountryName", "type": "nominal", "title": "Country Name"},
+      {"field": "DeathCount", "type": "quantitative"},
+      {"field": "PositiveCases", "type": "quantitative"},
+      {"field": "Fatality Rate (%)", "type": "quantitative", "format": ".2f"},
+      {"field": "PositiveCases", "type": "quantitative"}
+    ]
+  },
+  "config": {}
+}
