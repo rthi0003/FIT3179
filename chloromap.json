@@ -1,0 +1,59 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "title": "COVID-19 Total Death Count in Asia (As Of 31st October 2020)",
+  "width": 800,
+  "height": 600,
+  "data": {
+    "url": "https://raw.githubusercontent.com/rthi0003/FIT3179/main/asia.json",
+    "format": {"type": "topojson", "feature": "asia"}
+  },
+  "transform": [
+    {
+      "lookup": "properties.name",
+      "from": {
+        "data": {
+          "url": "https://raw.githubusercontent.com/rthi0003/FIT3179/main/AsiaCovid19WithPopAndRecovered.csv"
+        },
+        "key": "CountryName",
+        "fields": ["DeathCount", "Population", "PositiveCases"]
+      }
+    },
+    {
+      "calculate": "datum.DeathCount/datum.Population * 100000",
+      "as": "Death Count per 100000"
+    }
+  ],
+  "projection": {"type": "equalEarth"},
+  "mark": {"type": "geoshape"},
+  "encoding": {
+    "color": {
+      "field": "Death Count per 100000",
+      "type": "quantitative",
+      "scale": {
+        "type": "threshold",
+        "domain": [0.1, 0.5, 1, 10, 20, 30, 40, 50],
+        "range": [
+          "#60F7B3",
+          "#60E0BB",
+          "#60C9C3",
+          "#5FB1CB",
+          "#5F9AD3",
+          "#5F83DA",
+          "#5F6CE2",
+          "#5E54EA"
+        ]
+      }
+    },
+    "tooltip": [
+      {"field": "properties.name", "type": "nominal", "title": "Country Name"},
+      {"field": "DeathCount", "type": "quantitative"},
+      {
+        "field": "Death Count per 100000",
+        "type": "quantitative",
+        "format": ".2f"
+      },
+      {"field": "PositiveCases", "type": "quantitative"}
+    ]
+  },
+  "config": {}
+}
