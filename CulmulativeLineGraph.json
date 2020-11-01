@@ -1,0 +1,138 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "width": 500,
+  "height": 400,
+  "title": "Covid-19 Cases Over Month",
+  "data": {
+    "url": "https://raw.githubusercontent.com/rthi0003/FIT3179/main/Covid19WithMonths.csv"
+  },
+  "params": [
+    {
+      "name": "Country_Selection",
+      "bind": {
+        "input": "select",
+        "options": [
+          null,
+          "Tajikistan",
+          "Kuwait",
+          "Oman",
+          "Mongolia",
+          "Laos",
+          "Syria",
+          "Myanmar",
+          "Bhutan",
+          "Afghanistan",
+          "Taiwan",
+          "Japan",
+          "Sri Lanka",
+          "Iraq",
+          "Jordan",
+          "Turkey",
+          "Maldives",
+          "India",
+          "Indonesia",
+          "Bangladesh",
+          "Palestine",
+          "United Arab Emirates",
+          "Iran",
+          "Qatar",
+          "Brunei Darussalam",
+          "Lebanon",
+          "Malaysia",
+          "Israel",
+          "Uzbekistan",
+          "Philippines",
+          "Thailand",
+          "Yemen",
+          "Saudi Arabia",
+          "Cambodia",
+          "Timor Leste",
+          "South Korea",
+          "Nepal",
+          "Pakistan",
+          "Vietnam",
+          "China",
+          "Bahrain",
+          "Kyrgyzstan",
+          "Singapore",
+          "Kazakhstan"
+        ],
+        "labels": [
+          "Show All",
+          "Tajikistan",
+          "Kuwait",
+          "Oman",
+          "Mongolia",
+          "Laos",
+          "Syria",
+          "Myanmar",
+          "Bhutan",
+          "Afghanistan",
+          "Taiwan",
+          "Japan",
+          "Sri Lanka",
+          "Iraq",
+          "Jordan",
+          "Turkey",
+          "Maldives",
+          "India",
+          "Indonesia",
+          "Bangladesh",
+          "Palestine",
+          "United Arab Emirates",
+          "Iran",
+          "Qatar",
+          "Brunei Darussalam",
+          "Lebanon",
+          "Malaysia",
+          "Israel",
+          "Uzbekistan",
+          "Philippines",
+          "Thailand",
+          "Yemen",
+          "Saudi Arabia",
+          "Cambodia",
+          "Timor Leste",
+          "South Korea",
+          "Nepal",
+          "Pakistan",
+          "Vietnam",
+          "China",
+          "Bahrain",
+          "Kyrgyzstan",
+          "Singapore",
+          "Kazakhstan"
+        ],
+        "name": "Country Selection: "
+      }
+    }
+  ],
+  "transform": [
+    {
+      "filter": "Country_Selection == null || datum.COUNTRY_SHORT_NAME == Country_Selection"
+    }
+  ],
+  "mark": "line",
+  "encoding": {
+    "x": {"field": "REPORT_DATE", "type": "temporal", "title": "Month"},
+    "y": {
+      "field": "PEOPLE_POSITIVE_CASES_COUNT",
+      "type": "quantitative",
+      "title": "Positive Cases"
+    },
+    "color": {
+      "field": "COUNTRY_SHORT_NAME",
+      "type": "nominal",
+      "title": "Countries"
+    },
+    "tooltip": [
+      {"field": "COUNTRY_SHORT_NAME", "type": "nominal", "title": "Countries"},
+      {
+        "field": "PEOPLE_POSITIVE_CASES_COUNT",
+        "type": "quantitative",
+        "title": "Positive Cases"
+      }
+    ]
+  },
+  "config": {}
+}
