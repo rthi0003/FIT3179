@@ -126,12 +126,28 @@
     <p></p>
     <!-- end pure grid group -->
 <hr>
+<!-- pure grid group -->
+    <div class="pure-g">
+        <div class="pure-u-1-1">
+          <div class="description description-left">
+            <h2>The Culmulative Line Graph of Positive Cases Over the Months January - October 2020 By Asian Country</h2>
+            <p1>This culmulative shows the culmulative cases of each Asian Country over the month Jan-Oct 2020. From the graph, it can be seen that <mark>India has the highest number of Positive cases</mark>. This is probably because they have one of the highest population so spreading the virus is easier there. <b>However, just because a country has high positive cases does not mean it has the highest Fatality Rate</b></p>
+            <p></p>
+          </div>
+        </div>
+        <div class="pure-u-1">
+          <div id="visLine" class="vis-container"></div>
+        </div>
+    </div>
+    <p></p>
+    <!-- end pure grid group -->
 
 <script type="text/javascript">
   var specVis1 = "sortedbarascending.json";
   var specVis2= "sortedbardescending.json";
   var specVis3= "./scatterplot.json";
   var specVis4= "chloromap.json";
+  var specVisLine= "CulmulativeLineGraph.json";
 
   vegaEmbed('#visBar1', specVis1).then(function(result) {
     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
@@ -144,6 +160,9 @@
     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
   }).catch(console.error);
   vegaEmbed('#visMap', specVis4).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+  }).catch(console.error);
+  vegaEmbed('#visLine', specVis5).then(function(result) {
     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
   }).catch(console.error);
 </script>
