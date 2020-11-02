@@ -1,8 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-  "title": "COVID-19 Total Death Count in Asia (As Of 31st October 2020)",
-  "width": 800,
-  "height": 600,
+  "title": "COVID-19 Death Count Per 100000 in Asia (As Of 31st October 2020)",
+  "width": "container",
   "data": {
     "url": "https://raw.githubusercontent.com/rthi0003/FIT3179/main/asia.json",
     "format": {"type": "topojson", "feature": "asia"}
