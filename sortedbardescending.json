@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-  "width": "cointainer",
+  "width": "container",
   "title": "COVID-19 Fatality Rate Of Asian Countries (As Of 31st October 2020)",
   "data": {
     "url": "https://raw.githubusercontent.com/rthi0003/FIT3179/main/AsiaCovid19WithPopAndRecovered.csv"
