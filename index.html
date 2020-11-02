@@ -60,10 +60,11 @@
     <div class="pure-g">
       <div class="pure-u-1-1">
         <h1>FIT3179 Data Visualization Assignment 2- (30149487)</h1>
-        <p style="font-size:200%;" >Novel Coronavirus Statistics in Asian Countries</p>
+        <center> <p style="font-size:180%;" >Novel Coronavirus Statistics in Asian Countries</p>
       </div>
     </div>
   <!-- end pure grid group -->
+      
 <!-- pure grid group -->
     <div class="pure-g">
         <div class="pure-u-1-1">
@@ -99,7 +100,7 @@
   var specVis1 = "./sortedbarascending.json";
   var specVis2= "./sortedbardescending.json";
   var specVis3= "./scatterplot.json";
-  var specVis4= "./chloromap.json";
+  var specVis4= "chloromap.json";
 
   vegaEmbed('#vis1', specVis1).then(function(result) {
     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
@@ -111,7 +112,7 @@
   vegaEmbed('#vis3', specVis3).then(function(result) {
     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
   }).catch(console.error);
-  vegaEmbed('#choropleth_map', specVis4).then(function(result) {
+  vegaEmbed('#vis4', specVis4).then(function(result) {
     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
   }).catch(console.error);
 </script>
