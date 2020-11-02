@@ -3,7 +3,7 @@
   "title": "COVID-19 Death Count Per 100000 in Asia (As Of 31st October 2020)",
   "width": "container",
   "data": {
-    "url": "https://raw.githubusercontent.com/rthi0003/FIT3179/main/asia.json",
+    "url": "https://raw.githubusercontent.com/rthi0003/FIT3179/main/js/asia.json",
     "format": {"type": "topojson", "feature": "asia"}
   },
   "transform": [
@@ -11,7 +11,7 @@
       "lookup": "properties.name",
       "from": {
         "data": {
-          "url": "https://raw.githubusercontent.com/rthi0003/FIT3179/main/AsiaCovid19WithPopAndRecovered.csv"
+          "url": "https://raw.githubusercontent.com/rthi0003/FIT3179/main/data/AsiaCovid19WithPopAndRecovered.csv"
         },
         "key": "CountryName",
         "fields": ["DeathCount", "Population", "PositiveCases"]
