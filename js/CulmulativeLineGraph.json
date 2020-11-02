@@ -4,7 +4,7 @@
   "height": 400,
   "title": "Culmulative Covid-19 Cases Over Month Jan-Oct 2020 by Asian Countries",
   "data": {
-    "url": "https://raw.githubusercontent.com/rthi0003/FIT3179/main/Covid19WithMonths.csv"
+    "url": "https://raw.githubusercontent.com/rthi0003/FIT3179/main/data/Covid19WithMonths.csv"
   },
   "params": [
     {
